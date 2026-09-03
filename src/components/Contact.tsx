@@ -2,24 +2,46 @@ import { useState } from 'react';
 import { Mail, Facebook, MessageCircle, Youtube, Github, Send, CheckCircle2 } from 'lucide-react';
 
 const socials = [
-  { label: 'Email', icon: Mail, href: 'mailto:hello@example.com' },
-  { label: 'Facebook', icon: Facebook, href: 'https://facebook.com' },
-  { label: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/0000000000' },
-  { label: 'YouTube', icon: Youtube, href: 'https://youtube.com' },
-  { label: 'GitHub', icon: Github, href: 'https://github.com' },
+  { label: 'Email', icon: Mail, href: 'mailto:skmahirulamin@gmail.com' },
+  { label: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/iamskmahi/' },
+  { label: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/8801997258668' },
+  { label: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@paurutitost' },
+  { label: 'GitHub', icon: Github, href: 'https://github.com/skmahirulamin' },
 ];
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setForm({ name: '', email: '', message: '' });
-    setTimeout(() => setSent(false), 4000);
-  };
 
+    const formData = new FormData();
+    formData.append('access_key', 'b8beb76f-d775-4946-a305-bbd8e045022f');
+    formData.append('name', form.name);
+    formData.append('email', form.email);
+    formData.append('message', form.message);
+    formData.append('subject', 'New message from SK Mahi Portfolio');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSent(true);
+        setForm({ name: '', email: '', message: '' });
+        setTimeout(() => setSent(false), 4000);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch {
+      alert('Unable to send message. Please try again later.');
+    }
+  };
   const field =
     'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 outline-none transition-colors focus:border-cyan-300/50 focus:bg-white/[0.07]';
 
