@@ -24,28 +24,23 @@ jobs:
       - name: Install yt-dlp
         run: pip install yt-dlp
 
-      - name: Update latest video
+       - name: Update latest video
         run: |
           yt-dlp \
             --flat-playlist \
             --playlist-end 1 \
-            --print "%(id)s" \
-            --print "%(title)s" \
+            --print-json \
             "https://www.youtube.com/channel/UC4FqgUr66G2QfUGKey8iI6w/videos" \
-            > video.txt
-
-          VIDEO_ID=$(sed -n '1p' video.txt)
-          TITLE=$(sed -n '2p' video.txt)
+            > video.json
 
           python - <<'PY'
           import json
-          import os
 
-          with open("video.txt", "r", encoding="utf-8") as f:
-              lines = f.read().splitlines()
+          with open("video.json", "r", encoding="utf-8") as f:
+              video = json.loads(f.readline())
 
-          video_id = lines[0].strip()
-          title = lines[1].strip()
+          video_id = video["id"]
+          title = video["title"]
 
           data = {
               "title": title,
