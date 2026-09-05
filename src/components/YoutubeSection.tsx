@@ -100,13 +100,16 @@ export default function YoutubeSection() {
                 <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/30" />
 
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
-                    <span className="absolute inset-0 rounded-full bg-rose-500/30" style={{ animation: 'pulse-ring 2.5s ease-out infinite' }} />
-                    <Play className="h-8 w-8 fill-white text-white" />
+                  <span className="relative flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-md transition-transform duration-300 group-hover:scale-110 sm:h-20 sm:w-20">
+                    <span
+                      className="absolute inset-0 rounded-full bg-rose-500/30"
+                      style={{ animation: 'pulse-ring 2.5s ease-out infinite' }}
+                    />
+                    <Play className="h-5 w-5 fill-white text-white sm:h-8 sm:w-8" />
                   </span>
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <span className="rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs text-white/90 backdrop-blur">
+                  <span className="max-w-[85%] truncate rounded-full border border-white/20 bg-black/50 px-2 py-0.5 text-[10px] text-white/90 backdrop-blur sm:max-w-none sm:px-3 sm:py-1 sm:text-xs">
                     {latestVideo?.title || 'Latest Video'}
                   </span>
                   <span className="flex items-center gap-1.5 text-xs text-white/80">
