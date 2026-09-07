@@ -5,15 +5,17 @@ export default function Footer() {
     <footer className="relative section-pad border-t border-white/10 py-12">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
-          <div className="flex items-center gap-3">
+          <div className="flex w-full items-center justify-center gap-3 md:w-auto md:justify-start">
             <img
               src={`${import.meta.env.BASE_URL}sk-logo.png`}
               alt="SK Mahi"
-              className="h-10 w-10 rounded-xl object-contain"
+              className="h-9 w-9 shrink-0 rounded-xl object-contain md:h-10 md:w-10"
             />
-            <div>
+            <div className="text-left">
               <p className="text-lg font-semibold">Mahi</p>
-              <p className="text-sm text-white/50">Digital Creator & Multimedia Freelancer</p>
+              <p className="text-sm leading-tight text-white/50">
+                Digital Creator & Multimedia Freelancer
+              </p>
             </div>
           </div>
 
