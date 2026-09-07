@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skmahirulamin.github.io/sitemap.xml
