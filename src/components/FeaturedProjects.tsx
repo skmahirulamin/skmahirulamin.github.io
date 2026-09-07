@@ -1,10 +1,10 @@
-import { Play, Gamepad2, Calculator, Sparkles, ArrowUpRight } from 'lucide-react';
+import { Play, Gamepad2, Calculator, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
     title: 'Bengal Strikers',
     description:
-      'An interactive browser-based football game inspired by the energy of local football and Bengal.',
+      'A browser-based football game inspired by local football culture and Bengal, featuring interactive gameplay and a fast-paced match experience.',
     primary: { label: 'Play Game', icon: Play },
     primaryHref: 'https://bengalstrikers.netlify.app/',
     secondary: { label: 'View Details', icon: ArrowUpRight },
@@ -19,7 +19,7 @@ const projects = [
   {
     title: 'bKash Charge Calculator',
     description:
-      'A simple and useful web tool designed to quickly calculate different bKash transaction charges.',
+      'A web-based bKash charge calculator that helps users quickly estimate transaction fees for different bKash services.',
     primary: { label: 'Try Tool', icon: Calculator },
     primaryHref: 'https://bkash-charge-calculator.vercel.app/',
     secondary: { label: 'View Project', icon: ArrowUpRight },
@@ -63,9 +63,8 @@ export default function FeaturedProjects() {
           {projects.map((p, i) => (
             <article
               key={p.title}
-              className={`reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0e0e13] ${
-                p.span ?? 'lg:col-span-6'
-              }`}
+              className={`reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0e0e13] ${p.span ?? 'lg:col-span-6'
+                }`}
               data-reveal-delay={i * 90}
             >
               {/* Visual top area */}
@@ -83,7 +82,7 @@ export default function FeaturedProjects() {
                   {p.image ? (
                     <img
                       src={p.image}
-                      alt={`${p.title} gameplay`}
+                      alt={`${p.title} project preview`}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (

@@ -20,7 +20,7 @@ export default function SkillsTools() {
             Tools I Create With
           </p>
           <h2 className="reveal text-4xl font-bold leading-tight md:text-5xl" data-reveal-delay="60">
-            The toolkit behind the work.
+            Skills & Tools I Use to Create Digital Experiences.
           </h2>
         </div>
 
