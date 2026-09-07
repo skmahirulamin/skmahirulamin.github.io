@@ -24,8 +24,8 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-6">
-          <p className="text-center text-sm text-white/40">
+        <div className="mt-8 border-t border-white/10 pt-5 md:mt-10 md:pt-6">
+          <p className="px-2 text-center text-xs leading-relaxed text-white/50 sm:text-sm">
             © {year} Sheikh Mahirul Amin. All rights reserved.
           </p>
         </div>
