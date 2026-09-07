@@ -16,7 +16,7 @@ export default function About() {
           <div className="reveal relative order-2 lg:order-1">
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10">
               <img
-                src={`${import.meta.env.BASE_URL}Gemini_Generated_Image_7k3xvz7k3xvz7k3x.jpeg`}
+                src={`${import.meta.env.BASE_URL}mahi-profile.jpeg`}
                 alt="Mahi — Digital Creator"
                 className="h-full w-full object-cover"
               />
