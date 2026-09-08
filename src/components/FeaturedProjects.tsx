@@ -63,8 +63,7 @@ export default function FeaturedProjects() {
           {projects.map((p, i) => (
             <article
               key={p.title}
-              className={`reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0e0e13] ${p.span ?? 'lg:col-span-6'
-                }`}
+              className="reveal group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0e0e13] lg:col-span-6"
               data-reveal-delay={i * 90}
             >
               {/* Visual top area */}
