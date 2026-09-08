@@ -1,3 +1,4 @@
+import ChatBot from '@/components/ChatBot';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -27,6 +28,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ChatBot />
     </div>
   );
 }
