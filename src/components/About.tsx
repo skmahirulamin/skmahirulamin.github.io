@@ -23,8 +23,8 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </div>
             {/* floating chips */}
-            <div className="absolute -right-3 top-8 rounded-2xl border border-white/10 bg-[#0e0e13]/90 px-4 py-3 backdrop-blur md:-right-6">
-              <p className="text-2xl font-bold text-gradient">Multidisciplinary</p>
+            <div className="absolute -right-3 top-8 rounded-2xl border border-white/10 bg-[#0e0e13]/90 px-3 py-2 backdrop-blur md:-right-6 md:px-4 md:py-3">
+              <p className="text-sm font-bold text-gradient md:text-2xl">Multidisciplinary</p>
             </div>
             <div className="absolute -left-3 bottom-10 rounded-2xl border border-white/10 bg-[#0e0e13]/90 px-4 py-3 backdrop-blur md:-left-6">
               <p className="text-sm text-white/60">Creative · Technical</p>
