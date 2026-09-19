@@ -16,32 +16,53 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('access_key', 'b8beb76f-d775-4946-a305-bbd8e045022f');
-    formData.append('name', form.name);
-    formData.append('email', form.email);
-    formData.append('message', form.message);
-    formData.append('subject', 'New message from SK Mahi Portfolio');
+    const web3Request = (() => {
+      const formData = new FormData();
+      formData.append('access_key', 'b8beb76f-d775-4946-a305-bbd8e045022f');
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('message', form.message);
+      formData.append('subject', 'New message from SK Mahi Portfolio');
 
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      return fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData,
-      });
+      }).then((response) => response.json());
+    })();
 
-      const data = await response.json();
+    const n8nRequest = fetch('https://nylon-endangered-lie-restrict.trycloudflare.com/webhook/portfolio-lead', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        budget: 'Not specified',
+      }),
+    });
 
-      if (data.success) {
-        setSent(true);
-        setForm({ name: '', email: '', message: '' });
-        setTimeout(() => setSent(false), 4000);
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
-    } catch {
+    const [web3Result, n8nResult] = await Promise.allSettled([
+      web3Request,
+      n8nRequest,
+    ]);
+
+    const web3Success =
+      web3Result.status === 'fulfilled' && web3Result.value.success === true;
+
+    const n8nSuccess =
+      n8nResult.status === 'fulfilled' && n8nResult.value.ok;
+
+    if (web3Success || n8nSuccess) {
+      setSent(true);
+      setForm({ name: '', email: '', message: '' });
+      setTimeout(() => setSent(false), 4000);
+    } else {
       alert('Unable to send message. Please try again later.');
     }
   };
+
   const field =
     'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 outline-none transition-colors focus:border-cyan-300/50 focus:bg-white/[0.07]';
 
