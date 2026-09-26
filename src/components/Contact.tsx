@@ -30,7 +30,7 @@ export default function Contact() {
       }).then((response) => response.json());
     })();
 
-    const n8nRequest = fetch('https://nylon-endangered-lie-restrict.trycloudflare.com/webhook/portfolio-lead', {
+    const n8nRequest = fetch('https://social-impose-brass-controllers.trycloudflare.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
